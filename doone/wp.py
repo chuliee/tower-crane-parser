@@ -1,12 +1,42 @@
 import glob
 import json
 import os
+import requests
 import time
 
-folder_path = './wind_data/10min_data/'
-json_files = glob.glob(os.path.join(folder_path, '*.json'))
+start_date = 20260225
+end_date = 20260228
+dates = []
+folder_path = './wind_data'
 
+def request_json(url):
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+    else:
+        print(f'Failed: {url}')
+        data = False
+    return data
 
+def manage_json(date, type):
+    file = f'{folder_path}/{type}_data/{date}_{type}.json'
+    if not os.path.isfile(file):
+        url = f'http://15.165.129.45:5007/api/wind/{type}/14335C57D38F/{date}'
+        data = request_json(url)
+        if data:
+            with open(file, 'w', encoding='utf-8') as f:
+                json.dump(data, f, indent=4)
+            print(f'{date}_{type}.json: Saved')
+        else:
+            pass
+    else:
+        print(f'{date}_{type}.json: Already exist')
+
+for d in range(start_date, end_date + 1):
+    manage_json(d, 'daily')
+    manage_json(d, '10min')
+
+json_files = glob.glob(os.path.join(f'{folder_path}/10min_data/', '*.json'))
 with open(f'wind_data_{time.time()}.csv', 'w') as r:
     r.write('date_time,avg,max,min\n')
     for j in json_files:
@@ -19,6 +49,46 @@ with open(f'wind_data_{time.time()}.csv', 'w') as r:
                 dmax = d['status']['max']
                 dmin = d['status']['min']
                 r.write(f'{datetime},{davg},{dmax},{dmin}\n')
+
+
+    # file_daily = f'{folder_path}/1hr_data/{d}_daily.json'
+    # if not os.path.isfile(file_daily):
+    #     url_daily = f'http://15.165.129.45:5007/api/wind/daily/14335C57D38F/{d}'
+    #     data = request_json(url_daily)
+    #     if data:
+    #         with open(file_daily, 'w', encoding='utf-8') as f:
+    #             json.dump(data, f, indent=4)
+    #         print(f'{d}_daily.json: Saved')
+    #     else:
+    #         pass
+    # else:
+    #     print(f'{d}_daily.json: Already exist')
+    
+    # file_10min = f'{folder_path}/10min_data/{d}_daily.json'
+    # if not os.path.isfile(file_daily):
+    # url_10min = f'http://15.165.129.45:5007/api/wind/10min/14335C57D38F/{d}'
+
+    # if response.status_code == 200:
+    #     data = response.json()
+    
+
+
+# folder_path = './wind_data/10min_data/'
+# 
+
+
+# with open(f'wind_data_{time.time()}.csv', 'w') as r:
+#     r.write('date_time,avg,max,min\n')
+#     for j in json_files:
+#         with open(j, 'r', encoding='utf-8') as f:
+#             raw_data = json.load(f)
+#             data = raw_data['data']
+#             for d in data:
+#                 datetime = d['datetime']
+#                 davg = d['status']['wind']
+#                 dmax = d['status']['max']
+#                 dmin = d['status']['min']
+#                 r.write(f'{datetime},{davg},{dmax},{dmin}\n')
 
 # print(temp)
 # print(len(temp))
