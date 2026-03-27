@@ -4,8 +4,8 @@ import os
 import requests
 import time
 
-start_date = 20260301
-end_date = 20260316
+start_date = 20260317
+end_date = 20260327
 dates = []
 folder_path = './wind_data'
 

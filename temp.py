@@ -1,68 +1,63 @@
-import matplotlib.pyplot as plt
-import matplotlib.dates as mdates
-import numpy as np
-import pandas as pd
+import pulp
+import itertools
+import random
 
-file_path = './bbox/BBox20260303072945.td'
-start_time = '2026-02-28 07:00:00'
-end_time = '2026-02-28 16:30:00'
+# 1. 문제 설정: 7개의 도시 좌표 생성 (임의 설정)
+num_cities = 7
+cities = range(num_cities)
+locations = {i: (random.uniform(0, 100), random.uniform(0, 100)) for i in cities}
 
-with open(file_path, 'r') as f:
-    df = pd.read_csv(f) # object
-    df['Time'] = pd.to_datetime(df['Time']) # convert 'Time' from TEXT to DATETIME
+# 도시 간 거리 계산 (유클리드 거리)
+def get_distance(c1, c2):
+    loc1, loc2 = locations[c1], locations[c2]
+    return ((loc1[0] - loc2[0])**2 + (loc1[1] - loc2[1])**2)**0.5
 
-    df_mod = df.copy()
-    
-    time_mask = (df_mod['Time'] >= start_time) & (df_mod['Time'] <= end_time)
-    df_mod = df_mod.loc[time_mask]
+dist = {(i, j): get_distance(i, j) for i in cities for j in cities if i != j}
 
-    # np luffing
-    np_luffing_rad = np.arccos(df_mod['Radius'] / 50)
-    df_mod['Luffing'] = np.degrees(np_luffing_rad)
-    df_mod['Height_gr'] = df_mod['Height'] - (np.sin(np_luffing_rad) * 50)    
-    
+# 2. 모델 정의
+prob = pulp.LpProblem("TSP_7_Cities", pulp.LpMinimize)
 
-    print(len(df))
-    print(len(df_mod))
-    print(df_mod.head)
-    
-plt.rcParams['figure.figsize'] = (12, 10)  # 전체 그래프 크기
-plt.rcParams['lines.linewidth'] = 1.5
+# 3. 의사결정 변수
+# x[i, j] = 1 이면 도시 i에서 j로 이동함
+x = pulp.LpVariable.dicts("x", dist.keys(), cat=pulp.LpBinary)
 
-# 2. 4개의 서브플롯 생성 (4행 1열)
-fig, axes = plt.subplots(4, 1, sharex=True) # X축(시간) 공유
+# u[i] = MTZ 제약 조건을 위한 보조 변수 (방문 순서)
+u = pulp.LpVariable.dicts("u", cities, lowBound=0, upBound=num_cities-1, cat=pulp.LpContinuous)
 
-# 대상 컬럼 리스트
-columns_to_plot = ['Load', 'Luffing', 'Angle', 'Height_gr']
-colors = ['blue', 'green', 'orange', 'red']
-labels = ['Load (t)', 'Luffing (°)', 'Angle (°)', 'Height (m)']
+# 4. 목적 함수: 전체 이동 거리 최소화
+prob += pulp.lpSum([dist[i, j] * x[i, j] for (i, j) in dist.keys()])
 
-for i, col in enumerate(columns_to_plot):
-    axes[i].plot(df_mod['Time'], df_mod[col], color=colors[i], label=col)
-    axes[i].xaxis.set_major_formatter(mdates.DateFormatter('%H%M'))
-    axes[i].xaxis.set_major_locator(mdates.MinuteLocator(interval=30))
-    axes[i].set_ylabel(labels[i])
-    axes[i].grid(True, linestyle='--', alpha=0.5)
-    axes[i].legend(loc='upper right')
+# 5. 제약 조건
+# (1) 각 도시에서 나가는 길은 오직 하나
+for i in cities:
+    prob += pulp.lpSum([x[i, j] for j in cities if i != j]) == 1
 
-# 3. 레이아웃 및 X축 설정
-plt.xlabel('Time')
-# plt.xticks(rotation=45) # 시간 라벨이 겹치지 않게 회전
-plt.suptitle(f'Crane Data Analysis ({start_time} ~ {end_time})', fontsize=16)
-plt.tight_layout(rect=[0, 0.03, 1, 0.95]) # 제목 공간 확보
+# (2) 각 도시로 들어오는 길은 오직 하나
+for j in cities:
+    prob += pulp.lpSum([x[i, j] for i in cities if i != j]) == 1
 
-# 4. 그래프 저장 및 출력
-# plt.savefig('worktime_analysis.png') # 파일로 저장
-plt.show() # 화면에 출력
+# (3) MTZ Subtour Elimination (부분 경로 제거 제약식)
+# 도시 0을 시작점으로 잡고 나머지 도시들에 대해 순서 부여
+for i in cities:
+    for j in cities:
+        if i != j and i != 0 and j != 0:
+            prob += u[i] - u[j] + num_cities * x[i, j] <= num_cities - 1
 
+# 6. 솔버 실행
+prob.solve(pulp.PULP_CBC_CMD(msg=0))
 
+# 7. 결과 출력
+print(f"최적화 상태: {pulp.LpStatus[prob.status]}")
+print(f"최단 경로 총 거리: {pulp.value(prob.objective):.2f}")
 
-    # for d in raw_data:
-    #     # t = t + 1
-    #     print(d[1])
-    #     df = pd.to_datetime(d[1])
-
-    #     print(df)
-    #     print(type(df))
-
-# print(t)
+# 경로 추적
+curr_city = 0
+path = [0]
+while len(path) < num_cities:
+    for j in cities:
+        if (curr_city, j) in x and pulp.value(x[curr_city, j]) == 1:
+            path.append(j)
+            curr_city = j
+            break
+path.append(0)  # 다시 시작점으로 복귀
+print(f"최적 경로: {' -> '.join(map(str, path))}")

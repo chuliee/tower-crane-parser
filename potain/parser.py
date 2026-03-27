@@ -3,9 +3,9 @@ import matplotlib.dates as mdates
 import numpy as np
 import pandas as pd
 
-file_path = './bbox/BBox20260303072945.td'
-start_time = '2026-02-28 07:00:00'
-end_time = '2026-02-28 16:30:00'
+file_path = './bbox/BBox20260213145650.td'
+start_time = '2026-02-11 07:00:00'
+end_time = '2026-02-11 16:30:00'
 
 with open(file_path, 'r') as f:
     df = pd.read_csv(f) # object
@@ -20,7 +20,7 @@ with open(file_path, 'r') as f:
     # np luffing
     np_luffing_rad = np.arccos(df_mod['Radius'] / 50)
     df_mod['Luffing'] = np.degrees(np_luffing_rad)
-    df_mod['Height_gr'] = (np.sin(np_luffing_rad) * 50) - df['Height'] 
+    # df_mod['Height_gr'] = 100 - df['Height'] + (np.sin(np_luffing_rad) * 50)
 
     print(len(df))
     print(len(df_mod))
@@ -33,7 +33,7 @@ plt.rcParams['lines.linewidth'] = 1.5
 fig, axes = plt.subplots(4, 1, sharex=True) # X축(시간) 공유
 
 # 대상 컬럼 리스트
-columns_to_plot = ['Load', 'Luffing', 'Angle', 'Height_gr']
+columns_to_plot = ['Load', 'Luffing', 'Angle', 'Height']
 colors = ['blue', 'green', 'orange', 'red']
 labels = ['Load (t)', 'Luffing (°)', 'Angle (°)', 'Height (m)']
 
