@@ -2,67 +2,89 @@ import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
 import numpy as np
 import pandas as pd
+import shutil
 
-file_path = './bbox/BBox20260213145650.td'
-start_time = '2026-02-11 07:00:00'
-end_time = '2026-02-11 16:30:00'
+from datetime import time
+from pathlib import Path
 
-with open(file_path, 'r') as f:
-    df = pd.read_csv(f) # object
-    df['Time'] = pd.to_datetime(df['Time']) # convert 'Time' from TEXT to DATETIME
+start_time = time(7, 0, 0)
+end_time = time(16, 30, 0)
 
+def bbox_by_date():
+    bbox_files = list(Path('./bbox').glob('*.td'))
+    for bf in bbox_files:
+        with open(bf, 'r') as f:
+            df = pd.read_csv(f) # object
+            df['Time'] = pd.to_datetime(df['Time']) # convert 'Time' from TEXT to DATETIME
 
-    df_mod = df.copy()
+            for date, group in df.groupby(df['Time'].dt.date):
+                file_name = f'{date}_{bf.stem}_len({len(group)}).td'
+                # if len(group) > 40000:
+                file_name = f'{date}_{bf.stem}_len({len(group)}).td'
+                group.to_csv(f'./bbox_by_date/{file_name}', index=False, encoding='utf-8-sig')
+                print(f'Saved bbox_by_date: {file_name}')
+                # else:
+                    # print(f'Dropped {file_name}')
+        shutil.move(str(bf), './bbox/parsed')
+
+def parse_bbox_to_image():
+    bbox_files = list(Path('./bbox_by_date').glob('*.td'))
+    print(bbox_files)
+    for bf in bbox_files:
+        with open(bf, 'r') as f:
+            df = pd.read_csv(f) # object
+            df['Time'] = pd.to_datetime(df['Time']) # convert 'Time' from TEXT to DATETIME
+            df_mod = df.copy()
+            
+            time_mask = (df_mod['Time'].dt.time >= start_time) & (df_mod['Time'].dt.time <= end_time)
+            df_mod = df_mod.loc[time_mask]
+
+            # np luffing
+            np_luffing_rad = np.arccos(df_mod['Radius'] / 50)
+            df_mod['Luffing'] = np.degrees(np_luffing_rad)
+            # df_mod['Height_gr'] = 100 - df['Height'] + (np.sin(np_luffing_rad) * 50)
     
-    time_mask = (df_mod['Time'] >= start_time) & (df_mod['Time'] <= end_time)
-    df_mod = df_mod.loc[time_mask]
+            plt.rcParams['figure.figsize'] = (12, 15)  # 전체 그래프 크기
+            plt.rcParams['lines.linewidth'] = 1.5
 
-    # np luffing
-    np_luffing_rad = np.arccos(df_mod['Radius'] / 50)
-    df_mod['Luffing'] = np.degrees(np_luffing_rad)
-    # df_mod['Height_gr'] = 100 - df['Height'] + (np.sin(np_luffing_rad) * 50)
+            # 2. 4개의 서브플롯 생성 (4행 1열)
+            fig, axes = plt.subplots(4, 1, sharex=True) # X축(시간) 공유
 
-    print(len(df))
-    print(len(df_mod))
-    print(df_mod.head)
-    
-plt.rcParams['figure.figsize'] = (12, 10)  # 전체 그래프 크기
-plt.rcParams['lines.linewidth'] = 1.5
+            # 대상 컬럼 리스트
+            columns_to_plot = ['Load', 'Luffing', 'Angle', 'Height']
+            colors = ['blue', 'green', 'orange', 'red']
+            labels = ['Load (t)', 'Luffing (°)', 'Swing (°)', 'Height (m)']
 
-# 2. 4개의 서브플롯 생성 (4행 1열)
-fig, axes = plt.subplots(4, 1, sharex=True) # X축(시간) 공유
+            for i, col in enumerate(columns_to_plot):
+                axes[i].plot(df_mod['Time'], df_mod[col], color=colors[i], label=col)
+                axes[i].xaxis.set_major_formatter(mdates.DateFormatter('%H:%M'))
+                axes[i].xaxis.set_major_locator(mdates.MinuteLocator(interval=30))
+                axes[i].set_ylabel(labels[i])
+                axes[i].grid(True, linestyle='--', alpha=0.5)
+                axes[i].legend(loc='upper right')
 
-# 대상 컬럼 리스트
-columns_to_plot = ['Load', 'Luffing', 'Angle', 'Height']
-colors = ['blue', 'green', 'orange', 'red']
-labels = ['Load (t)', 'Luffing (°)', 'Angle (°)', 'Height (m)']
+                if col == 'Load':       axes[i].set_ylim(-1, 20)
+                if col == 'Luffing':    axes[i].set_ylim(0, 90)
+                if col == 'Angle':      axes[i].set_ylim(0, 360)
+                if col == 'Height':     axes[i].set_ylim(0, 100)
 
-for i, col in enumerate(columns_to_plot):
-    axes[i].plot(df_mod['Time'], df_mod[col], color=colors[i], label=col)
-    axes[i].xaxis.set_major_formatter(mdates.DateFormatter('%H:%M'))
-    axes[i].xaxis.set_major_locator(mdates.MinuteLocator(interval=30))
-    axes[i].set_ylabel(labels[i])
-    axes[i].grid(True, linestyle='--', alpha=0.5)
-    axes[i].legend(loc='upper right')
+            # 3. 레이아웃 및 X축 설정
+            plt.xlabel('Time')
+            # plt.xticks(rotation=45) # 시간 라벨이 겹치지 않게 회전
+            plt.suptitle(f'Crane Data Analysis ({bf.stem[0:10]} {start_time} ~ {end_time})', fontsize=15)
+            plt.tight_layout(rect=[0, 0.03, 1, 0.95]) # 제목 공간 확보
 
-# 3. 레이아웃 및 X축 설정
-plt.xlabel('Time')
-# plt.xticks(rotation=45) # 시간 라벨이 겹치지 않게 회전
-plt.suptitle(f'Crane Data Analysis ({start_time} ~ {end_time})', fontsize=16)
-plt.tight_layout(rect=[0, 0.03, 1, 0.95]) # 제목 공간 확보
+            # 4. 그래프 저장 및 출력
+            plt.savefig(f'./images/{bf.stem}.png') # 파일로 저장
+            plt.close()
+            # plt.show() # 화면에 출력
+            print(bf, len(df_mod))
+        shutil.move(str(bf), './bbox_by_date/parsed')
 
-# 4. 그래프 저장 및 출력
-# plt.savefig('worktime_analysis.png') # 파일로 저장
-plt.show() # 화면에 출력
+def main():
+    dummy = input('Proceed raw data parsing? (Y/N)')
+    if dummy == 'y' or dummy == 'Y': bbox_by_date()
+    dummy = input('Proceed visualization?')
+    if dummy == 'y' or dummy == 'Y': parse_bbox_to_image()
 
-
-
-    # for d in raw_data:
-    #     # t = t + 1
-    #     print(d[1])
-    #     df = pd.to_datetime(d[1])
-
-    #     print(df)
-    #     print(type(df))
-
-# print(t)
+main()

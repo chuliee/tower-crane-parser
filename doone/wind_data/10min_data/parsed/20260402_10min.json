@@ -1,0 +1,950 @@
+{
+    "coverage_percent": 100.0,
+    "data": [
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 06:00:00",
+            "hour": 6,
+            "minute": 0,
+            "status": {
+                "max": 1.7,
+                "min": 0,
+                "wind": 0.4
+            },
+            "time": "06:00",
+            "time_bucket": 1775077200
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 06:10:00",
+            "hour": 6,
+            "minute": 10,
+            "status": {
+                "max": 1.8,
+                "min": 0,
+                "wind": 0.76
+            },
+            "time": "06:10",
+            "time_bucket": 1775077800
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 06:20:00",
+            "hour": 6,
+            "minute": 20,
+            "status": {
+                "max": 1.8,
+                "min": 0,
+                "wind": 0.28
+            },
+            "time": "06:20",
+            "time_bucket": 1775078400
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 06:30:00",
+            "hour": 6,
+            "minute": 30,
+            "status": {
+                "max": 1.8,
+                "min": 0,
+                "wind": 0.8
+            },
+            "time": "06:30",
+            "time_bucket": 1775079000
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 06:40:00",
+            "hour": 6,
+            "minute": 40,
+            "status": {
+                "max": 1.8,
+                "min": 0,
+                "wind": 0.5
+            },
+            "time": "06:40",
+            "time_bucket": 1775079600
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 06:50:00",
+            "hour": 6,
+            "minute": 50,
+            "status": {
+                "max": 1.3,
+                "min": 0,
+                "wind": 0.2
+            },
+            "time": "06:50",
+            "time_bucket": 1775080200
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 07:00:00",
+            "hour": 7,
+            "minute": 0,
+            "status": {
+                "max": 1.4,
+                "min": 0,
+                "wind": 0.48
+            },
+            "time": "07:00",
+            "time_bucket": 1775080800
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 07:10:00",
+            "hour": 7,
+            "minute": 10,
+            "status": {
+                "max": 1.6,
+                "min": 0.1,
+                "wind": 0.78
+            },
+            "time": "07:10",
+            "time_bucket": 1775081400
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 07:20:00",
+            "hour": 7,
+            "minute": 20,
+            "status": {
+                "max": 2.4,
+                "min": 0,
+                "wind": 1.12
+            },
+            "time": "07:20",
+            "time_bucket": 1775082000
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 07:30:00",
+            "hour": 7,
+            "minute": 30,
+            "status": {
+                "max": 2.7,
+                "min": 0.5,
+                "wind": 1.62
+            },
+            "time": "07:30",
+            "time_bucket": 1775082600
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 07:40:00",
+            "hour": 7,
+            "minute": 40,
+            "status": {
+                "max": 2.1,
+                "min": 0.2,
+                "wind": 1.16
+            },
+            "time": "07:40",
+            "time_bucket": 1775083200
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 07:50:00",
+            "hour": 7,
+            "minute": 50,
+            "status": {
+                "max": 2.9,
+                "min": 0.9,
+                "wind": 1.7
+            },
+            "time": "07:50",
+            "time_bucket": 1775083800
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 08:00:00",
+            "hour": 8,
+            "minute": 0,
+            "status": {
+                "max": 2.8,
+                "min": 0.1,
+                "wind": 1.32
+            },
+            "time": "08:00",
+            "time_bucket": 1775084400
+        },
+        {
+            "data_count": 4,
+            "datetime": "2026/04/02 08:10:00",
+            "hour": 8,
+            "minute": 10,
+            "status": {
+                "max": 2.3,
+                "min": 0.2,
+                "wind": 0.85
+            },
+            "time": "08:10",
+            "time_bucket": 1775085000
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 08:20:00",
+            "hour": 8,
+            "minute": 20,
+            "status": {
+                "max": 1.8,
+                "min": 0,
+                "wind": 0.62
+            },
+            "time": "08:20",
+            "time_bucket": 1775085600
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 08:30:00",
+            "hour": 8,
+            "minute": 30,
+            "status": {
+                "max": 1.4,
+                "min": 0.1,
+                "wind": 0.86
+            },
+            "time": "08:30",
+            "time_bucket": 1775086200
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 08:40:00",
+            "hour": 8,
+            "minute": 40,
+            "status": {
+                "max": 2.3,
+                "min": 0.1,
+                "wind": 1.12
+            },
+            "time": "08:40",
+            "time_bucket": 1775086800
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 08:50:00",
+            "hour": 8,
+            "minute": 50,
+            "status": {
+                "max": 7.1,
+                "min": 0.4,
+                "wind": 3.08
+            },
+            "time": "08:50",
+            "time_bucket": 1775087400
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 09:00:00",
+            "hour": 9,
+            "minute": 0,
+            "status": {
+                "max": 8.1,
+                "min": 2.7,
+                "wind": 5.64
+            },
+            "time": "09:00",
+            "time_bucket": 1775088000
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 09:10:00",
+            "hour": 9,
+            "minute": 10,
+            "status": {
+                "max": 7.5,
+                "min": 1.4,
+                "wind": 4.4
+            },
+            "time": "09:10",
+            "time_bucket": 1775088600
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 09:20:00",
+            "hour": 9,
+            "minute": 20,
+            "status": {
+                "max": 5.0,
+                "min": 1.2,
+                "wind": 2.5
+            },
+            "time": "09:20",
+            "time_bucket": 1775089200
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 09:30:00",
+            "hour": 9,
+            "minute": 30,
+            "status": {
+                "max": 4.3,
+                "min": 0.4,
+                "wind": 2.52
+            },
+            "time": "09:30",
+            "time_bucket": 1775089800
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 09:40:00",
+            "hour": 9,
+            "minute": 40,
+            "status": {
+                "max": 4.1,
+                "min": 0.2,
+                "wind": 2.6
+            },
+            "time": "09:40",
+            "time_bucket": 1775090400
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 09:50:00",
+            "hour": 9,
+            "minute": 50,
+            "status": {
+                "max": 4.0,
+                "min": 0.5,
+                "wind": 2.6
+            },
+            "time": "09:50",
+            "time_bucket": 1775091000
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 10:00:00",
+            "hour": 10,
+            "minute": 0,
+            "status": {
+                "max": 5.4,
+                "min": 0.4,
+                "wind": 2.88
+            },
+            "time": "10:00",
+            "time_bucket": 1775091600
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 10:10:00",
+            "hour": 10,
+            "minute": 10,
+            "status": {
+                "max": 7.9,
+                "min": 1.0,
+                "wind": 4.28
+            },
+            "time": "10:10",
+            "time_bucket": 1775092200
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 10:20:00",
+            "hour": 10,
+            "minute": 20,
+            "status": {
+                "max": 6.2,
+                "min": 1.3,
+                "wind": 3.62
+            },
+            "time": "10:20",
+            "time_bucket": 1775092800
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 10:30:00",
+            "hour": 10,
+            "minute": 30,
+            "status": {
+                "max": 9.3,
+                "min": 1.2,
+                "wind": 4.7
+            },
+            "time": "10:30",
+            "time_bucket": 1775093400
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 10:40:00",
+            "hour": 10,
+            "minute": 40,
+            "status": {
+                "max": 8.7,
+                "min": 2.0,
+                "wind": 5.62
+            },
+            "time": "10:40",
+            "time_bucket": 1775094000
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 10:50:00",
+            "hour": 10,
+            "minute": 50,
+            "status": {
+                "max": 8.6,
+                "min": 1.3,
+                "wind": 4.62
+            },
+            "time": "10:50",
+            "time_bucket": 1775094600
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 11:00:00",
+            "hour": 11,
+            "minute": 0,
+            "status": {
+                "max": 7.3,
+                "min": 1.8,
+                "wind": 5.32
+            },
+            "time": "11:00",
+            "time_bucket": 1775095200
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 11:10:00",
+            "hour": 11,
+            "minute": 10,
+            "status": {
+                "max": 7.9,
+                "min": 1.2,
+                "wind": 4.66
+            },
+            "time": "11:10",
+            "time_bucket": 1775095800
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 11:20:00",
+            "hour": 11,
+            "minute": 20,
+            "status": {
+                "max": 7.1,
+                "min": 1.0,
+                "wind": 5.02
+            },
+            "time": "11:20",
+            "time_bucket": 1775096400
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 11:30:00",
+            "hour": 11,
+            "minute": 30,
+            "status": {
+                "max": 7.4,
+                "min": 0.9,
+                "wind": 3.58
+            },
+            "time": "11:30",
+            "time_bucket": 1775097000
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 11:40:00",
+            "hour": 11,
+            "minute": 40,
+            "status": {
+                "max": 7.8,
+                "min": 1.2,
+                "wind": 3.92
+            },
+            "time": "11:40",
+            "time_bucket": 1775097600
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 11:50:00",
+            "hour": 11,
+            "minute": 50,
+            "status": {
+                "max": 6.9,
+                "min": 0,
+                "wind": 2.64
+            },
+            "time": "11:50",
+            "time_bucket": 1775098200
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 12:00:00",
+            "hour": 12,
+            "minute": 0,
+            "status": {
+                "max": 6.6,
+                "min": 0.8,
+                "wind": 3.66
+            },
+            "time": "12:00",
+            "time_bucket": 1775098800
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 12:10:00",
+            "hour": 12,
+            "minute": 10,
+            "status": {
+                "max": 8.3,
+                "min": 0.9,
+                "wind": 4.22
+            },
+            "time": "12:10",
+            "time_bucket": 1775099400
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 12:20:00",
+            "hour": 12,
+            "minute": 20,
+            "status": {
+                "max": 7.9,
+                "min": 0.5,
+                "wind": 3.64
+            },
+            "time": "12:20",
+            "time_bucket": 1775100000
+        },
+        {
+            "data_count": 4,
+            "datetime": "2026/04/02 12:30:00",
+            "hour": 12,
+            "minute": 30,
+            "status": {
+                "max": 7.4,
+                "min": 1.2,
+                "wind": 3.7
+            },
+            "time": "12:30",
+            "time_bucket": 1775100600
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 12:40:00",
+            "hour": 12,
+            "minute": 40,
+            "status": {
+                "max": 8.6,
+                "min": 1.3,
+                "wind": 5.08
+            },
+            "time": "12:40",
+            "time_bucket": 1775101200
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 12:50:00",
+            "hour": 12,
+            "minute": 50,
+            "status": {
+                "max": 9.3,
+                "min": 1.0,
+                "wind": 4.88
+            },
+            "time": "12:50",
+            "time_bucket": 1775101800
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 13:00:00",
+            "hour": 13,
+            "minute": 0,
+            "status": {
+                "max": 8.3,
+                "min": 0.6,
+                "wind": 3.9
+            },
+            "time": "13:00",
+            "time_bucket": 1775102400
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 13:10:00",
+            "hour": 13,
+            "minute": 10,
+            "status": {
+                "max": 5.6,
+                "min": 0,
+                "wind": 2.08
+            },
+            "time": "13:10",
+            "time_bucket": 1775103000
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 13:20:00",
+            "hour": 13,
+            "minute": 20,
+            "status": {
+                "max": 10.1,
+                "min": 1.3,
+                "wind": 5.68
+            },
+            "time": "13:20",
+            "time_bucket": 1775103600
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 13:30:00",
+            "hour": 13,
+            "minute": 30,
+            "status": {
+                "max": 10.9,
+                "min": 2.7,
+                "wind": 6.54
+            },
+            "time": "13:30",
+            "time_bucket": 1775104200
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 13:40:00",
+            "hour": 13,
+            "minute": 40,
+            "status": {
+                "max": 12.1,
+                "min": 1.4,
+                "wind": 7.12
+            },
+            "time": "13:40",
+            "time_bucket": 1775104800
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 13:50:00",
+            "hour": 13,
+            "minute": 50,
+            "status": {
+                "max": 9.6,
+                "min": 1.4,
+                "wind": 5.42
+            },
+            "time": "13:50",
+            "time_bucket": 1775105400
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 14:00:00",
+            "hour": 14,
+            "minute": 0,
+            "status": {
+                "max": 9.4,
+                "min": 0.8,
+                "wind": 4.7
+            },
+            "time": "14:00",
+            "time_bucket": 1775106000
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 14:10:00",
+            "hour": 14,
+            "minute": 10,
+            "status": {
+                "max": 12.3,
+                "min": 1.0,
+                "wind": 5.22
+            },
+            "time": "14:10",
+            "time_bucket": 1775106600
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 14:20:00",
+            "hour": 14,
+            "minute": 20,
+            "status": {
+                "max": 13.4,
+                "min": 1.0,
+                "wind": 6.9
+            },
+            "time": "14:20",
+            "time_bucket": 1775107200
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 14:30:00",
+            "hour": 14,
+            "minute": 30,
+            "status": {
+                "max": 14.6,
+                "min": 1.4,
+                "wind": 7.08
+            },
+            "time": "14:30",
+            "time_bucket": 1775107800
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 14:40:00",
+            "hour": 14,
+            "minute": 40,
+            "status": {
+                "max": 13.1,
+                "min": 3.2,
+                "wind": 8.78
+            },
+            "time": "14:40",
+            "time_bucket": 1775108400
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 14:50:00",
+            "hour": 14,
+            "minute": 50,
+            "status": {
+                "max": 11.6,
+                "min": 1.2,
+                "wind": 6.6
+            },
+            "time": "14:50",
+            "time_bucket": 1775109000
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 15:00:00",
+            "hour": 15,
+            "minute": 0,
+            "status": {
+                "max": 11.9,
+                "min": 2.1,
+                "wind": 8.18
+            },
+            "time": "15:00",
+            "time_bucket": 1775109600
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 15:10:00",
+            "hour": 15,
+            "minute": 10,
+            "status": {
+                "max": 10.8,
+                "min": 1.2,
+                "wind": 5.76
+            },
+            "time": "15:10",
+            "time_bucket": 1775110200
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 15:20:00",
+            "hour": 15,
+            "minute": 20,
+            "status": {
+                "max": 11.7,
+                "min": 2.1,
+                "wind": 7.38
+            },
+            "time": "15:20",
+            "time_bucket": 1775110800
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 15:30:00",
+            "hour": 15,
+            "minute": 30,
+            "status": {
+                "max": 12.1,
+                "min": 1.8,
+                "wind": 6.82
+            },
+            "time": "15:30",
+            "time_bucket": 1775111400
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 15:40:00",
+            "hour": 15,
+            "minute": 40,
+            "status": {
+                "max": 12.3,
+                "min": 1.8,
+                "wind": 7.04
+            },
+            "time": "15:40",
+            "time_bucket": 1775112000
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 15:50:00",
+            "hour": 15,
+            "minute": 50,
+            "status": {
+                "max": 11.6,
+                "min": 1.4,
+                "wind": 7.52
+            },
+            "time": "15:50",
+            "time_bucket": 1775112600
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 16:00:00",
+            "hour": 16,
+            "minute": 0,
+            "status": {
+                "max": 9.7,
+                "min": 1.3,
+                "wind": 6.52
+            },
+            "time": "16:00",
+            "time_bucket": 1775113200
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 16:10:00",
+            "hour": 16,
+            "minute": 10,
+            "status": {
+                "max": 10.8,
+                "min": 1.7,
+                "wind": 5.26
+            },
+            "time": "16:10",
+            "time_bucket": 1775113800
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 16:20:00",
+            "hour": 16,
+            "minute": 20,
+            "status": {
+                "max": 11.2,
+                "min": 1.0,
+                "wind": 5.2
+            },
+            "time": "16:20",
+            "time_bucket": 1775114400
+        },
+        {
+            "data_count": 4,
+            "datetime": "2026/04/02 16:30:00",
+            "hour": 16,
+            "minute": 30,
+            "status": {
+                "max": 12.9,
+                "min": 1.7,
+                "wind": 6.58
+            },
+            "time": "16:30",
+            "time_bucket": 1775115000
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 16:40:00",
+            "hour": 16,
+            "minute": 40,
+            "status": {
+                "max": 10.6,
+                "min": 0.9,
+                "wind": 7.7
+            },
+            "time": "16:40",
+            "time_bucket": 1775115600
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 16:50:00",
+            "hour": 16,
+            "minute": 50,
+            "status": {
+                "max": 9.8,
+                "min": 0.8,
+                "wind": 6.38
+            },
+            "time": "16:50",
+            "time_bucket": 1775116200
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 17:00:00",
+            "hour": 17,
+            "minute": 0,
+            "status": {
+                "max": 11.5,
+                "min": 1.3,
+                "wind": 5.56
+            },
+            "time": "17:00",
+            "time_bucket": 1775116800
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 17:10:00",
+            "hour": 17,
+            "minute": 10,
+            "status": {
+                "max": 9.7,
+                "min": 1.4,
+                "wind": 4.36
+            },
+            "time": "17:10",
+            "time_bucket": 1775117400
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 17:20:00",
+            "hour": 17,
+            "minute": 20,
+            "status": {
+                "max": 8.2,
+                "min": 1.6,
+                "wind": 3.7
+            },
+            "time": "17:20",
+            "time_bucket": 1775118000
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 17:30:00",
+            "hour": 17,
+            "minute": 30,
+            "status": {
+                "max": 6.6,
+                "min": 0.5,
+                "wind": 3.06
+            },
+            "time": "17:30",
+            "time_bucket": 1775118600
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 17:40:00",
+            "hour": 17,
+            "minute": 40,
+            "status": {
+                "max": 7.1,
+                "min": 0.8,
+                "wind": 3.44
+            },
+            "time": "17:40",
+            "time_bucket": 1775119200
+        },
+        {
+            "data_count": 5,
+            "datetime": "2026/04/02 17:50:00",
+            "hour": 17,
+            "minute": 50,
+            "status": {
+                "max": 7.5,
+                "min": 0.9,
+                "wind": 3.5
+            },
+            "time": "17:50",
+            "time_bucket": 1775119800
+        }
+    ],
+    "date": "20260402",
+    "dvid": "14335C57D38F",
+    "interval_minutes": 10,
+    "message": "10-minute interval data retrieved successfully",
+    "slots_with_data": 72,
+    "structured": false,
+    "success": true,
+    "time_range": "06:00 - 18:00",
+    "total_slots": 72
+}
