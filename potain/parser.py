@@ -10,7 +10,13 @@ from pathlib import Path
 start_time = time(7, 0, 0)
 end_time = time(16, 30, 0)
 
+init_path = [Path('./images'), Path('./bbox/parsed'), Path('./bbox_by_date/parsed')]
+for p in init_path: p.mkdir(parents=True, exist_ok=True)
+
 def bbox_by_date():
+    bbox_files = list(Path('./bbox').glob('*.csv'))
+    for bf in bbox_files:
+        shutil.move(str(bf), str(bf.with_suffix('.td')))
     bbox_files = list(Path('./bbox').glob('*.td'))
     for bf in bbox_files:
         with open(bf, 'r') as f:
@@ -20,7 +26,7 @@ def bbox_by_date():
             for date, group in df.groupby(df['Time'].dt.date):
                 file_name = f'{date}_{bf.stem}_len({len(group)}).td'
                 # if len(group) > 40000:
-                file_name = f'{date}_{bf.stem}_len({len(group)}).td'
+                file_name = f'{date}_{group["Time"].iloc[0].strftime("%H%M%S")}_{group["Time"].iloc[-1].strftime("%H%M%S")}_len({len(group)}).td'
                 group.to_csv(f'./bbox_by_date/{file_name}', index=False, encoding='utf-8-sig')
                 print(f'Saved bbox_by_date: {file_name}')
                 # else:
@@ -29,7 +35,7 @@ def bbox_by_date():
 
 def parse_bbox_to_image():
     bbox_files = list(Path('./bbox_by_date').glob('*.td'))
-    print(bbox_files)
+    # print(bbox_files)
     for bf in bbox_files:
         with open(bf, 'r') as f:
             df = pd.read_csv(f) # object
@@ -82,9 +88,9 @@ def parse_bbox_to_image():
         shutil.move(str(bf), './bbox_by_date/parsed')
 
 def main():
-    dummy = input('Proceed raw data parsing? (Y/N)')
+    dummy = input('Proceed raw data parsing? (Y/N) ')
     if dummy == 'y' or dummy == 'Y': bbox_by_date()
-    dummy = input('Proceed visualization?')
+    dummy = input('Proceed visualization? (Y/N) ')
     if dummy == 'y' or dummy == 'Y': parse_bbox_to_image()
 
 main()

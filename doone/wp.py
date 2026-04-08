@@ -4,15 +4,18 @@ import os
 import requests
 import time
 
+from pathlib import Path
+
 ## 도원알에프에서 추출할 풍속 데이터의 기록 날짜(start_date, end_date) 수정 후 사용
 
 start_date = 20260407
 end_date = 20260407
 dates = []
-folder_path = './wind_data'
 
 ##############################
 
+init_path = [Path('./wind_data/daily_data'), Path('./wind_data/10min_data')]
+for p in init_path: p.mkdir(parents=True, exist_ok=True)
 
 def request_json(url):
     response = requests.get(url)
@@ -24,7 +27,7 @@ def request_json(url):
     return data
 
 def manage_json(date, type):
-    file = f'{folder_path}/{type}_data/{date}_{type}.json'
+    file = f'./wind_data/{type}_data/{date}_{type}.json'
     if not os.path.isfile(file):
         url = f'http://15.165.129.45:5007/api/wind/{type}/14335C57D38F/{date}'
         data = request_json(url)
@@ -41,7 +44,7 @@ for d in range(start_date, end_date + 1):
     manage_json(d, 'daily')
     manage_json(d, '10min')
 
-json_files = glob.glob(os.path.join(f'{folder_path}/10min_data/', '*.json'))
+json_files = glob.glob(os.path.join(f'./wind_data/10min_data/', '*.json'))
 with open(f'wind_data_{time.time()}.csv', 'w') as r:
     r.write('date_time,avg,max,min\n')
     for j in json_files:
