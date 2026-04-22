@@ -7,8 +7,8 @@ import shutil
 from datetime import time
 from pathlib import Path
 
-start_time = time(7, 0, 0)
-end_time = time(16, 30, 0)
+start_time = time(6, 0, 0)
+end_time = time(18, 0, 0)
 
 init_path = [Path('./images'), Path('./bbox/parsed'), Path('./bbox_by_date/parsed')]
 for p in init_path: p.mkdir(parents=True, exist_ok=True)
@@ -45,10 +45,9 @@ def parse_bbox_to_image():
             time_mask = (df_mod['Time'].dt.time >= start_time) & (df_mod['Time'].dt.time <= end_time)
             df_mod = df_mod.loc[time_mask]
 
-            # np luffing
-            np_luffing_rad = np.arccos(df_mod['Radius'] / 50)
-            df_mod['Luffing'] = np.degrees(np_luffing_rad)
-            # df_mod['Height_gr'] = 100 - df['Height'] + (np.sin(np_luffing_rad) * 50)
+            # np_luffing_rad = np.arccos(df_mod['Radius'] / 50)
+            # df_mod['Luffing'] = np.degrees(np_luffing_rad)
+            # df_mod['Height_gr'] = df['Height'] - (np.sin(np.radians(df_mod['Elevation'])) * 50)
     
             plt.rcParams['figure.figsize'] = (12, 15)  # 전체 그래프 크기
             plt.rcParams['lines.linewidth'] = 1.5
@@ -57,7 +56,7 @@ def parse_bbox_to_image():
             fig, axes = plt.subplots(4, 1, sharex=True) # X축(시간) 공유
 
             # 대상 컬럼 리스트
-            columns_to_plot = ['Load', 'Luffing', 'Angle', 'Height']
+            columns_to_plot = ['Load', 'Elevation', 'Angle', 'Height']
             colors = ['blue', 'green', 'orange', 'red']
             labels = ['Load (t)', 'Luffing (°)', 'Swing (°)', 'Height (m)']
 
@@ -70,9 +69,9 @@ def parse_bbox_to_image():
                 axes[i].legend(loc='upper right')
 
                 if col == 'Load':       axes[i].set_ylim(-1, 20)
-                if col == 'Luffing':    axes[i].set_ylim(0, 90)
+                if col == 'Elevation':    axes[i].set_ylim(0, 90)
                 if col == 'Angle':      axes[i].set_ylim(0, 360)
-                if col == 'Height':     axes[i].set_ylim(0, 100)
+                if col == 'Height':  axes[i].set_ylim(0, 100)
 
             # 3. 레이아웃 및 X축 설정
             plt.xlabel('Time')

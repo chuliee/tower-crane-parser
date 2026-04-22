@@ -8,8 +8,8 @@ from pathlib import Path
 
 ## 도원알에프에서 추출할 풍속 데이터의 기록 날짜(start_date, end_date) 수정 후 사용
 
-start_date = 20260407
-end_date = 20260407
+start_date = 20260417
+end_date = 20260418
 dates = []
 
 ##############################
