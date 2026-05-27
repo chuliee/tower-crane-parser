@@ -10,14 +10,14 @@ from pathlib import Path
 start_time = time(6, 0, 0)
 end_time = time(18, 0, 0)
 
-init_path = [Path('./images'), Path('./bbox/parsed'), Path('./bbox_by_date/parsed')]
+init_path = [Path('./result/images'), Path('./data/bbox/parsed'), Path('./data/bbox_by_date/parsed')]
 for p in init_path: p.mkdir(parents=True, exist_ok=True)
 
 def bbox_by_date():
-    bbox_files = list(Path('./bbox').glob('*.csv'))
+    bbox_files = list(Path('./data/bbox').glob('*.csv'))
     for bf in bbox_files:
         shutil.move(str(bf), str(bf.with_suffix('.td')))
-    bbox_files = list(Path('./bbox').glob('*.td'))
+    bbox_files = list(Path('./data/bbox').glob('*.td'))
     for bf in bbox_files:
         with open(bf, 'r') as f:
             df = pd.read_csv(f) # object
@@ -27,14 +27,14 @@ def bbox_by_date():
                 file_name = f'{date}_{bf.stem}_len({len(group)}).td'
                 # if len(group) > 40000:
                 file_name = f'{date}_{group["Time"].iloc[0].strftime("%H%M%S")}_{group["Time"].iloc[-1].strftime("%H%M%S")}_len({len(group)}).td'
-                group.to_csv(f'./bbox_by_date/{file_name}', index=False, encoding='utf-8-sig')
+                group.to_csv(f'./data/bbox_by_date/{file_name}', index=False, encoding='utf-8-sig')
                 print(f'Saved bbox_by_date: {file_name}')
                 # else:
                     # print(f'Dropped {file_name}')
-        shutil.move(str(bf), './bbox/parsed')
+        shutil.move(str(bf), './data/bbox/parsed')
 
 def parse_bbox_to_image():
-    bbox_files = list(Path('./bbox_by_date').glob('*.td'))
+    bbox_files = list(Path('./data/bbox_by_date').glob('*.td'))
     # print(bbox_files)
     for bf in bbox_files:
         with open(bf, 'r') as f:

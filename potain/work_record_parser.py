@@ -11,6 +11,7 @@ start_time = time(6, 0, 0)
 end_time = time(18, 0, 0)
 load_interval = 3
 load_len_min = 20
+load_min = 0.1
 
 # 초기 폴더 생성
 init_path = ['./result/work_record', './result/images', './data/bbox', './data/bbox_by_date']
@@ -84,16 +85,15 @@ def process_bbox_files(bbox_dict):
                                 print(len(current_work))
                                 df_mod = pd.DataFrame(current_work)
                                 print(df_mod['Time'].iloc[0])
-                                if df_mod['Load'].max() >= 0.5:
+                                if df_mod['Load'].max() >= load_min:
                                     if df_mod['Angle'].iloc[0] != 0 and df_mod['Angle'].iloc[0] != 360 and df_mod['Angle'].iloc[-1] != 0 and df_mod['Angle'].iloc[-1] != 360:
                                         work_list.append(pd.DataFrame(current_work))
-                                current_work = []
-                                interval_buffer = []
-                                work_flag = False
                             else:
-                                current_work = []
-                                interval_buffer = []
-                                work_flag = False
+                                pass
+                            # load_interval보다 클 경우 작업을 끊고 변수를 초기화
+                            work_flag = False
+                            current_work = []
+                            interval_buffer = []
                         else:
                             pass
 

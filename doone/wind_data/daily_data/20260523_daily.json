@@ -1,0 +1,250 @@
+{
+    "data": [
+        {
+            "data_count": 30,
+            "datetime": "20260523 00:00:00",
+            "hour": "00",
+            "status": {
+                "avg": 0.53,
+                "max": 2.4,
+                "min": 0
+            }
+        },
+        {
+            "data_count": 30,
+            "datetime": "20260523 01:00:00",
+            "hour": "01",
+            "status": {
+                "avg": 1.28,
+                "max": 3.5,
+                "min": 0
+            }
+        },
+        {
+            "data_count": 29,
+            "datetime": "20260523 02:00:00",
+            "hour": "02",
+            "status": {
+                "avg": 1.46,
+                "max": 4.0,
+                "min": 0
+            }
+        },
+        {
+            "data_count": 30,
+            "datetime": "20260523 03:00:00",
+            "hour": "03",
+            "status": {
+                "avg": 2.18,
+                "max": 6.6,
+                "min": 0
+            }
+        },
+        {
+            "data_count": 30,
+            "datetime": "20260523 04:00:00",
+            "hour": "04",
+            "status": {
+                "avg": 3.69,
+                "max": 7.9,
+                "min": 0.1
+            }
+        },
+        {
+            "data_count": 30,
+            "datetime": "20260523 05:00:00",
+            "hour": "05",
+            "status": {
+                "avg": 3.73,
+                "max": 8.2,
+                "min": 0.2
+            }
+        },
+        {
+            "data_count": 29,
+            "datetime": "20260523 06:00:00",
+            "hour": "06",
+            "status": {
+                "avg": 4.23,
+                "max": 9.3,
+                "min": 0.5
+            }
+        },
+        {
+            "data_count": 30,
+            "datetime": "20260523 07:00:00",
+            "hour": "07",
+            "status": {
+                "avg": 3.58,
+                "max": 7.7,
+                "min": 0
+            }
+        },
+        {
+            "data_count": 30,
+            "datetime": "20260523 08:00:00",
+            "hour": "08",
+            "status": {
+                "avg": 2.42,
+                "max": 6.4,
+                "min": 0.1
+            }
+        },
+        {
+            "data_count": 29,
+            "datetime": "20260523 09:00:00",
+            "hour": "09",
+            "status": {
+                "avg": 3.44,
+                "max": 7.9,
+                "min": 0
+            }
+        },
+        {
+            "data_count": 30,
+            "datetime": "20260523 10:00:00",
+            "hour": "10",
+            "status": {
+                "avg": 2.38,
+                "max": 7.1,
+                "min": 0
+            }
+        },
+        {
+            "data_count": 30,
+            "datetime": "20260523 11:00:00",
+            "hour": "11",
+            "status": {
+                "avg": 2.79,
+                "max": 6.2,
+                "min": 0
+            }
+        },
+        {
+            "data_count": 30,
+            "datetime": "20260523 12:00:00",
+            "hour": "12",
+            "status": {
+                "avg": 2.22,
+                "max": 6.3,
+                "min": 0
+            }
+        },
+        {
+            "data_count": 29,
+            "datetime": "20260523 13:00:00",
+            "hour": "13",
+            "status": {
+                "avg": 1.58,
+                "max": 5.4,
+                "min": 0
+            }
+        },
+        {
+            "data_count": 30,
+            "datetime": "20260523 14:00:00",
+            "hour": "14",
+            "status": {
+                "avg": 1.78,
+                "max": 5.1,
+                "min": 0
+            }
+        },
+        {
+            "data_count": 30,
+            "datetime": "20260523 15:00:00",
+            "hour": "15",
+            "status": {
+                "avg": 1.22,
+                "max": 4.6,
+                "min": 0
+            }
+        },
+        {
+            "data_count": 30,
+            "datetime": "20260523 16:00:00",
+            "hour": "16",
+            "status": {
+                "avg": 1.72,
+                "max": 4.4,
+                "min": 0
+            }
+        },
+        {
+            "data_count": 29,
+            "datetime": "20260523 17:00:00",
+            "hour": "17",
+            "status": {
+                "avg": 1.64,
+                "max": 4.7,
+                "min": 0
+            }
+        },
+        {
+            "data_count": 30,
+            "datetime": "20260523 18:00:00",
+            "hour": "18",
+            "status": {
+                "avg": 0.58,
+                "max": 2.5,
+                "min": 0
+            }
+        },
+        {
+            "data_count": 30,
+            "datetime": "20260523 19:00:00",
+            "hour": "19",
+            "status": {
+                "avg": 2.19,
+                "max": 5.0,
+                "min": 0.1
+            }
+        },
+        {
+            "data_count": 29,
+            "datetime": "20260523 20:00:00",
+            "hour": "20",
+            "status": {
+                "avg": 2.36,
+                "max": 4.3,
+                "min": 0.2
+            }
+        },
+        {
+            "data_count": 30,
+            "datetime": "20260523 21:00:00",
+            "hour": "21",
+            "status": {
+                "avg": 1.37,
+                "max": 3.7,
+                "min": 0.1
+            }
+        },
+        {
+            "data_count": 30,
+            "datetime": "20260523 22:00:00",
+            "hour": "22",
+            "status": {
+                "avg": 0.94,
+                "max": 2.4,
+                "min": 0
+            }
+        },
+        {
+            "data_count": 30,
+            "datetime": "20260523 23:00:00",
+            "hour": "23",
+            "status": {
+                "avg": 0.86,
+                "max": 2.4,
+                "min": 0
+            }
+        }
+    ],
+    "date": "20260523",
+    "dvid": "14335C57D38F",
+    "hours_with_data": 24,
+    "message": "Daily data retrieved successfully",
+    "success": true,
+    "total_hours": 24
+}
